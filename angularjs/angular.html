@@ -1,0 +1,309 @@
+<!--Consider an AngularJS application to consist of:
+
+	View, which is the HTML.
+	Model, which is the data available for the current view.
+	Controller, which is the JavaScript function that makes/changes/removes/controls the data.
+-->
+<!DOCTYPE html>
+<html>
+<head>
+	<!--ANGULARJS SCRIPT-->
+	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+	<!--ANGULARJS ANIMATIONS-->
+	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular-animate.js"></script>
+	<!--ANGULAR JS ROUTE MODULE-->
+	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular-route.js"></script>
+
+<style>
+	.newclass{color: red;}
+
+	
+</style>
+
+</head>
+<body>
+	<div ng-app="myApp" ng-init="mycol='red'">
+		
+		<div ng-controller="myCtrl">	
+			<!-- AngularJS directives are HTML attributes with an ng prefix.-->
+			<!--The ng-app directive tells AngularJS that the <div> element is the "owner" of an AngularJS application.-->
+			<!--AngularJS controllers control AngularJS applications.The ng-controller directive defines the controller.-->	
+			<!--The ng-init directive initializes AngularJS application variables.-->
+			
+			<p>Name: <input type="text" ng-model="name"></p>
+			<p ng-bind="name"></p>
+			<!--The ng-model directive binds the value of the input field to the application variable name.-->
+			<!--The ng-bind directive binds the content of the <p> element to the application variable name.-->
+			<!--ng-bind-html directive binds the innerHTML of an HTML element to application data, and also removes dangerous code from the HTML string.-->
+			
+			<p>{{name}}</p>
+			<!--value of the variable name is coming from input through ng-model-->
+			
+			<p>my first expression: {{2+8}}</p>
+			<!--AngularJS expressions are written inside double braces: {{ expression }}.AngularJS will "output" data exactly where the expression is written-->
+			
+			<p>{{firstname}}</p>
+			<p>{{lastname}}</p>
+			<!--values of firstname and lastname are coming from controller-->
+
+			<p>{{person.name}}</p>
+			<p>{{person.surname}}</p>
+			<!--angularjs objects(object properties coming are from controller)-->
+
+			<p>{{num[0]}}</p>
+			<!--angularjs arrays(object properties coming are from controller)-->
+
+			<!--Like ng-model,init,bind, any user defined directives can also be created-->
+
+			<p>Looping with objects:</p>
+			<ul>
+				<li ng-repeat="x in names">
+			  		{{ x.name + ', ' + x.country }}
+			  	</li>
+			</ul>
+
+			<!--
+			The ng-model directive adds/removes the following classes, according to the status of the form field:
+				ng-empty
+				ng-not-empty
+				ng-touched
+				ng-untouched
+				ng-valid
+				ng-invalid
+				ng-dirty
+				ng-pending
+				ng-pristine
+			-->
+
+			<!--
+			AngularJS Filters
+			AngularJS provides filters to transform data:
+
+			currency 	Format a number to a currency format.
+			date 		Format a date to a specified format.
+			filter 		Select a subset of items from an array.
+			json 		Format an object to a JSON string.
+			limitTo 	Limits an array/string, into a specified number of elements
+			lowercase 	Format a string to lower case.
+			number 		Format a number to a string.
+			orderBy 	Orders an array by an expression.
+			uppercase 	Format a string to upper case.
+			(a custom filter can also be added.)
+
+			filters are added using | character.
+			-->
+
+			<!--
+			angularjs Services:
+				$location
+				$http
+				$timeout
+				$interval
+				(a custom service can also be created)
+			-->	
+
+			<!--creating a table using ng-repeat-->
+			<table>
+				<tr>
+					<th>Name</th>
+					<th>Country</th>
+				</tr>
+				<tr ng-repeat="x in names | orderBy: 'country' ">
+					<td>{{$index+1}}</td>
+					<td>{{x.name}}</td>
+					<td>{{x.country | uppercase }}</td>
+				</tr>
+			</table>
+
+			<!--creating a dropdown by taking values from an array-->
+			<select ng-model="selectedName" ng-options="x.name for x in names"></select>
+			<p>country: {{selectedName.country}}</p>
+
+			<!--creating a dropdown by taking values from an object-->
+			<select ng-model="selectedCar" ng-options="y.brand for (x,y) in cars"></select>
+			<p>Selection: {{selectedCar.color}}</p>
+			<!--ALWAYS USE ng-options INSTEAD OF ng-repeat WHILE MAKING DROPDOWNS-->
+
+			<button ng-disabled="true">Click Me!</button>
+			<p ng-show="true">I am visible.</p>
+			<p ng-show="false">I am not visible.</p>
+			<p ng-hide="true">I am not visible.</p>
+			<p ng-hide="false">I am visible.</p>
+
+			<!--AngularJS Events
+
+				ng-blur
+				ng-change
+				ng-click
+				ng-copy
+				ng-cut
+				ng-dblclick
+				ng-focus
+				ng-keydown
+				ng-keypress
+				ng-keyup
+				ng-mousedown
+				ng-mouseenter
+				ng-mouseleave
+				ng-mousemove
+				ng-mouseover
+				ng-mouseup
+				ng-paste
+			-->
+
+			<h1 ng-init="count=0" ng-mousemove="count=count+1">{{count}}</h1>
+
+			<button ng-click="mytoggle()">toggle</button><br>
+			<div ng-show="show">
+				<h1>Menu:</h1>
+			    <div>Pizza</div>
+			    <div>Pasta</div>
+			    <div>Pesce</div>
+			</div>
+
+			<!--ng-class directive-->
+			<input ng-model="active">
+			<p ng-class="{newclass:active==1}">Hello</p>
+			<!--if value of variable 'active is equal to 1, then the class 'newclass' gets applied to the <p> element.(styling of newclass is done in head)-->
+
+			<form name="myForm1">
+				<input name="myInput1" ng-model="input1" required>
+			</form>
+			<!--required attribute is used that is why form element will be invalid if empty-->
+			<p>The input's valid state is:</p>
+			<h1>{{myForm1.myInput1.$valid}}</h1>
+
+			<form name="myForm2">
+				<input type="email" name="myInput2" ng-model="input2" required>
+			</form>
+			<!--will validate email formate-->
+			<p>The input's valid state is:</p>
+			<h1>{{myForm2.myInput2.$valid}}</h1>
+
+			<!--
+			Input fields have the following states:
+
+				$untouched 		The field has not been touched yet
+				$touched 		The field has been touched
+				$pristine 		The field has not been modified yet
+				$dirty 			The field has been modified
+				$invalid 		The field content is not valid
+				$valid 			The field content is valid
+			They are all properties of the input field, and are either true or false.
+
+			Forms have the following states:
+
+				$pristine 		No fields have been modified yet
+				$dirty 			One or more have been modified
+				$invalid 		The form content is not valid
+				$valid 			The form content is valid
+				$submitted 		The form is submitted
+			They are all properties of the form, and are either true or false.
+			-->
+
+			<form name="myForm">
+				<p>Name:
+				<input name="myName" ng-model="myName" required>
+				<span ng-show="myForm.myName.$touched && myForm.myName.$invalid">The name is required.</span>
+				</p>
+			</form>	
+			<!--showed if element is touched and is empty(bcoz required)-->
+			<!--The HTML form attribute novalidate is used to disable default browser validation.-->
+
+			<!--
+			AngularJS adds CSS classes to forms and input fields depending on their states.
+
+				The following classes are added to, or removed from, input fields:
+
+				ng-untouched The field has not been touched yet
+				ng-touched The field has been touched
+				ng-pristine The field has not been  modified yet
+				ng-dirty The field has been modified
+				ng-valid The field content is valid
+				ng-invalid The field content is not valid
+				ng-valid-key One key for each validation. Example: ng-valid-required, useful when there are more than one thing that must be validated
+				ng-invalid-key Example: ng-invalid-required
+				The following classes are added to, or removed from, forms:
+
+				ng-pristine No fields has not been modified yet
+				ng-dirty One or more fields has been modified
+				ng-valid The form content is valid
+				ng-invalid The form content is not valid
+				ng-valid-key One key for each validation. Example: ng-valid-required, useful when there are more than one thing that must be validated
+				ng-invalid-key Example: ng-invalid-required
+			The classes are removed if the value they represent is false.
+			-->
+
+			<!-- ng-include directive -->
+			<!--<div ng-include="'extension.htm'"></div>-->
+
+			<!-- To make an SPA using routing -->
+			<!-- 
+			<p><a href="#/!">main</a>
+			<a href="#!red">red</a>
+			<a href="#!green">green</a>
+			<a href="#!blue">blue</a>
+
+			<div ng-view></div>	
+ 			-->
+
+
+		</div>
+
+		<p>{{color}}</p>
+
+	</div>
+
+	
+<script>
+var app = angular.module('myApp', ['ngRoute']);
+/*AngularJS modules define AngularJS applications.The "myApp" parameter refers to an HTML element in which the application will run.Now you can add controllers, directives, filters, and more, to your AngularJS application.The [] parameter in the module definition can be used to define dependent modules.
+Without the [] parameter, you are not creating a new module, but retrieving an existing one.*/
+
+	//AngularJS controllers control AngularJS applications.
+	app.controller('myCtrl', function($scope){
+		$scope.firstname = "Mehul";
+		$scope.lastname = "Agrawal";
+		$scope.person = {name:'mehul', surname:'agrawal'};//angularjs objects
+		$scope.num = [1,2,3,4,5];//angularjs
+		$scope.names=[
+			{name:'Jani',country:'Norway'},
+			{name:'Hege',country:'Sweden'},
+			{name:'Kai',country:'Denmark'}
+		];
+
+		$scope.cars = {
+			car01 : {brand : "Ford", model : "Mustang", color : "red"},
+			car02 : {brand : "Fiat", model : "500", color : "white"},
+			car03 : {brand : "Volvo", model : "XC90", color : "black"}
+		};
+
+		$scope.show = false;
+		$scope.mytoggle = function(){
+			$scope.show = !$scope.show;
+		};
+
+
+
+	});	
+
+	//rootscope is available to the whole application without defining any controller
+	app.run(function($rootScope) {
+    	$rootScope.color = 'red';
+	});
+
+	/*Routing to make an SPA*/
+	/*
+	app.config(function($routeprovider){
+		$routeprovider
+			.when("/", {templateUrl: "main.htm"})
+			.when("/red", {templateUrl: "red.htm"})
+			.when("/green", {templateUrl: "green.htm"})
+			.when("/blue", {templateUrl: "blue.htm"});
+	});
+	*/
+
+</script>
+
+</body>
+</html>
