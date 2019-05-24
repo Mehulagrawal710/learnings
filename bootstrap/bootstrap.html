@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<title>Bootstrap 4 Example</title>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<!--BOOTSTRAP-->
+		<!-- Latest compiled and minified CSS -->
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
+		<!-- jQuery library -->
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+		<!-- Popper JS -->
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"></script>
+		<!-- Latest compiled JavaScript -->
+		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"></script>
+	<!------------->	
+
+</head>
+<body>
+	<!--CONTAINER CLASSES-->
+	<div class="container">
+		<h1>My First Bootstrap Page</h1>
+		<p>This part is inside a .container class.</p> 
+		<p>The .container class provides a responsive fixed width container.</p>
+	</div>
+
+	<div class="container-fluid">
+	  <h1>My First Bootstrap Page</h1>
+	  <p>This part is inside a .container-fluid class.</p>
+	  <p>The .container-fluid class provides a full width container, spanning the entire width of the viewport.</p>           
+	</div>
+
+	<!--GRID CLASSES-->
+	<!--
+	.col- (extra small devices - screen width less than 576px)
+	.col-sm- (small devices - screen width equal to or greater than 576px)
+	.col-md- (medium devices - screen width equal to or greater than 768px)
+	.col-lg- (large devices - screen width equal to or greater than 992px)
+	.col-xl- (xlarge devices - screen width equal to or greater than 1200px)
+	-->
+
+	<div class="container-fluid">
+		<div class="row">
+		    <div class="col-sm-3" style="background-color:lavender;">.col-sm-3</div>
+		    <div class="col-sm-3" style="background-color:lavenderblush;">.col-sm-3</div>
+		    <div class="col-sm-3" style="background-color:lavender;">.col-sm-3</div>
+		    <div class="col-sm-3" style="background-color:lavenderblush;">.col-sm-3</div>
+		</div>
+	</div>
+
+	<!--TYPOGRAPHY-->
+	<div class="container">
+	  <h1>h1 Bootstrap heading <small>secondary text</small> (2.5rem = 40px)</h1>
+	  <h2>h2 Bootstrap heading <small>secondary text</small> (2rem = 32px)</h2>
+	  <h3>h3 Bootstrap heading <small>secondary text</small> (1.75rem = 28px)</h3>
+	  <h4>h4 Bootstrap heading <small>secondary text</small> (1.5rem = 24px)</h4>
+	  <h5>h5 Bootstrap heading <small>secondary text</small> (1.25rem = 20px)</h5>
+	  <h6>h6 Bootstrap heading <small>secondary text</small> (1rem = 16px)</h6>
+	</div>
+
+	<div class="container">
+	  <h1>Display Headings</h1>
+	  <p>Display headings are used to stand out more than normal headings (larger font-size and lighter font-weight):</p>
+	  <h1 class="display-1">Display 1</h1>
+	  <h1 class="display-2">Display 2</h1>
+	  <h1 class="display-3">Display 3</h1>
+	  <h1 class="display-4">Display 4</h1>
+	</div>
+
+	<!--
+	Class					Description	Example
+	.font-weight-bold		Bold text	
+	.font-italic			Italic text	
+	.font-weight-light		Light weight text	
+	.font-weight-normal		Normal text	
+	.lead					Makes a paragraph stand out	
+	.small					Indicates smaller text (set to 85% of the size of the parent)	
+	.text-left				Indicates left-aligned text	
+	.text-*-left			Indicates left-aligned text on small, medium, large or xlarge 							screens		
+	.text-center			Indicates center-aligned text	
+	.text-*-center			Indicates center-aligned text on small, medium, large or 							xlarge screens	
+	.text-right				Indicates right-aligned text	
+	.text-*-right			Indicates right-aligned text on small, medium, large or 							xlarge screens		
+	.text-justify			Indicates justified text	
+	.text-monospace			Monospaced text	
+	.text-nowrap			Indicates no wrap text	
+	.text-lowercase			Indicates lowercased text	
+	.text-uppercase			Indicates uppercased text	
+	.text-capitalize		Indicates capitalized text	
+	.initialism				Displays the text inside an <abbr> element in a slightly 							smaller font size	
+	.list-unstyled			Removes the default list-style and left margin on list items (							works on both <ul> and <ol>). This class only applies to 							immediate children list items (to remove the default 								list-style from any nested lists, apply this class to any 							nested lists as well)	
+	.list-inline			Places all list items on a single line (used together with 								.list-inline-item on each <li> elements)	
+	.pre-scrollable			Makes a <pre> element scrollable	
+	-->
+
+	<!--COLOURS-->
+	<!-- Text-colour-->
+	<div class="container">
+	  <h2>Contextual Colors</h2>
+	  <p>Use the contextual classes to provide "meaning through colors":</p>
+	  <p class="text-muted">This text is muted.</p>
+	  <p class="text-primary">This text is important.</p>
+	  <p class="text-success">This text indicates success.</p>
+	  <p class="text-info">This text represents some information.</p>
+	  <p class="text-warning">This text represents a warning.</p>
+	  <p class="text-danger">This text represents danger.</p>
+	  <p class="text-secondary">Secondary text.</p>
+	  <p class="text-dark">This text is dark grey.</p>
+	  <p class="text-body">Default body color (often black).</p>
+	  <p class="text-light">This text is light grey (on white background).</p>
+	  <p class="text-white">This text is white (on white background).</p>
+	</div>
+	<!-- text-colour class when used with links, gives a darker colour on hover -->
+
+	<!--background-color-->
+	<div class="container">
+	  <p class="bg-primary text-white">This text is important.</p>
+	  <p class="bg-success text-white">This text indicates success.</p>
+	  <p class="bg-info text-white">This text represents some information.</p>
+	  <p class="bg-warning text-white">This text represents a warning.</p>
+	  <p class="bg-danger text-white">This text represents danger.</p>
+	  <p class="bg-secondary text-white">Secondary background color.</p>
+	  <p class="bg-dark text-white">Dark grey background color.</p>
+	  <p class="bg-light text-dark">Light grey background color.</p>
+	</div>
+
+	<!-- TABLES -->
+	<div class="container">
+	  <h2>Basic Table</h2>
+	  <p>The .table class adds basic styling (light padding and horizontal dividers) to a table:</p>            
+	  <table class="table">
+	    <thead>
+	      <tr>
+	        <th>Firstname</th>
+	        <th>Lastname</th>
+	        <th>Email</th>
+	      </tr>
+	    </thead>
+	    <tbody>
+	      <tr>
+	        <td>John</td>
+	        <td>Doe</td>
+	        <td>john@example.com</td>
+	      </tr>
+	      <tr>
+	        <td>Mary</td>
+	        <td>Moe</td>
+	        <td>mary@example.com</td>
+	      </tr>
+	      <tr>
+	        <td>July</td>
+	        <td>Dooley</td>
+	        <td>july@example.com</td>
+	      </tr>
+	    </tbody>
+	  </table>
+	</div>
+	<!--
+	These classes can also be added with the '.table class :
+		.table-striped 		adds zebra-stripes to a table
+		.table-bordered 	adds borders on all sides of the table and cells
+		.table-hover 		adds a hover effect (grey background color) on table rows
+		.table-dark 		adds a black background to the table
+		.table-borderless 	removes borders from the table
+		.table-sm 			makes the table smaller by cutting cell padding in half	
+		.table-responsive 	creates a responsive table: an horizontal scrollbar is added 					 to the table on screens that are less than 992px wide (if 						needed). When viewing on anything larger than 992px wide, 						there is no difference
+		.table-responsive-sm	for < 576px
+		.table-responsive-md	for < 768px
+		.table-responsive-lg	for < 992px
+		.table-responsive-xl	for < 1200px
+		Contextual classes can be used to color the whole table (<table>),  the table rows (<tr>) or table cells (<td>)
+		-->
+
+	<!--IMAGES-->
+	<div class="container">
+		<!--The .rounded class adds rounded corners to an image-->
+		<img src="https://www.w3schools.com/html/img_girl.jpg" class="rounded" alt="Cinque Terre" width="304" height="236">
+		<!--The .rounded-circle class shapes the image to a circle-->
+		<img src="https://www.w3schools.com/html/img_girl.jpg" class="rounded-circle" alt="Cinque Terre" width="304" height="236">
+		<!--The .img-thumbnail class shapes the image to a thumbnail (bordered)-->
+		<img src="https://www.w3schools.com/html/img_girl.jpg" class="img-thumbnail" alt="Cinque Terre" width="304" height="236">
+
+		<!--Float an image to the right with the .float-right class or to the left with .float-left-->
+		<img src="https://www.w3schools.com/html/img_girl.jpg" class="float-left" alt="Paris" width="304" height="236"> 
+		<img src="https://www.w3schools.com/html/img_girl.jpg" class="float-right" alt="Paris" width="304" height="236">
+		<!--Center an image by adding the utility classes .mx-auto (margin:auto) and .d-block (display:block) to the image-->
+		<img src="https://www.w3schools.com/html/img_girl.jpg" class="mx-auto d-block" style="width:50%">
+
+		<!--Create responsive images by adding an .img-fluid class to the <img> tag. The image will then scale nicely to the parent element.The .img-fluid class applies max-width: 100%; and height: auto; to the image-->
+		<img class="img-fluid" src="https://www.w3schools.com/html/img_girl.jpg" alt="Chania" width="460" height="345"> 
+	</div>
+
+	<!--JUMBOTRON-->
+	<!--Use a <div> element with class .jumbotron to create a jumbotron-->
+	<div class="container">
+	  <div class="jumbotron">
+	    <h1>Bootstrap Tutorial</h1>      
+	    <p>Bootstrap is the most popular HTML, CSS, and JS framework for developing responsive, mobile-first projects on the web.</p>
+	  </div>      
+	</div>
+
+	<!--If you want a full-width jumbotron without rounded borders, add the .jumbotron-fluid class and a .container or .container-fluid inside of it-->
+	<div class="jumbotron jumbotron-fluid">
+	  <div class="container">
+	    <h1>Bootstrap Tutorial</h1>      
+	    <p>Bootstrap is the most popular HTML, CSS, and JS framework for developing responsive, mobile-first projects on the web.</p>
+	  </div>
+	</div>
+
+
+
+</body>
+</html>
