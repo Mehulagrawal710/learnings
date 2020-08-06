@@ -18,6 +18,7 @@ def prime_factors(x):
 		x = x // spf[x]
 	return ret
 
-x = int(input())
+#x = int(input())
+x = 45
 p = prime_factors(x)
 print(p)
