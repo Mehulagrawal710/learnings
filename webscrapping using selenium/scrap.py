@@ -1,8 +1,9 @@
 import pandas as pd
 import time
 from selenium import webdriver
-from webdriver_manager.chrome import ChromeDriverManager
-driver = webdriver.Chrome(ChromeDriverManager().install())
+# from webdriver_manager.chrome import ChromeDriverManager
+# driver = webdriver.Chrome(ChromeDriverManager().install())
+driver = webdriver.Chrome("C://Users//DELL//Downloads//chromedriver_win32//chromedriver.exe")
 
 def recent_posts(username):
 	url = "https://www.instagram.com/"+username+"/"
